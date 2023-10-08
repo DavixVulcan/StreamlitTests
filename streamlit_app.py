@@ -1,10 +1,16 @@
 print("Hello Py")
 import streamlit as st
 import pandas as pd
-import qrcode
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
-})
+from streamlit_gsheets import GSheetsConnection
 
-df
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+
+df = conn.read(
+    worksheet="Sheet1",
+    ttl="10m",
+    usecols=[0,1],
+    nrows=3
+)
+
+
+st.image()
