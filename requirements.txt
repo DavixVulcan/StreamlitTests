@@ -1,3 +1,4 @@
 st-gsheets-connection
 qrcode
 streamlit>=1.22
+streamlit_gsheets
